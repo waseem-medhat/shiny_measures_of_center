@@ -36,9 +36,8 @@ dbBody <- dashboardBody(
       fluidRow(br()),
       
       fluidRow(
-        column(3),
         column(6, plotOutput('dplot3')),
-        column(3)
+        column(6, plotOutput('dplot4'))
       )
       
     ),
@@ -54,6 +53,7 @@ server <- function(input, output) {
   output$dplot1 <- renderPlot({ dplot1() })
   output$dplot2 <- renderPlot({ dplot2() })
   output$dplot3 <- renderPlot({ dplot3() })
+  output$dplot4 <- renderPlot({ dplot4() })
 }
 
 shinyApp(ui = ui, server = server)

@@ -3,7 +3,7 @@ theme_set(theme_minimal(base_size = 16))
 
 source("dotplot.R")
 
-dplot1 <- reactive({ histogram(rnorm(100)) })
-dplot2 <- reactive({ histogram(rchisq(100, 2)) })
-dplot3 <- reactive({ histogram(-rchisq(100, 2)) })
-dplot4 <- reactive({ histogram(c(rnorm(100), rnorm(100, 5))) })
+dplot1 <- reactive({ dotplot(rnorm(50)) })
+dplot2 <- reactive({ dotplot(c(rnorm(50), rnorm(50, 5))) })
+dplot3 <- reactive({ dotplot(rchisq(50, 1)) })
+dplot4 <- reactive({ dotplot(-rchisq(50, 1)) })
