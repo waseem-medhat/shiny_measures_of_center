@@ -1,4 +1,4 @@
-histogram <- function(d) {
+dotplot <- function(d) {
   
   c_hist <- "gray60"
   c_den  <- "gray20"
@@ -6,7 +6,7 @@ histogram <- function(d) {
   c_median <- "dodgerblue4"
   
   ggplot(NULL, aes(d)) +
-    geom_histogram(aes(y = ..density..), fill = c_hist, color = "white") +
+    geom_dotplot(fill = c_hist, color = "white") +
     geom_density(size = 1, linetype = 2, color = c_den) +
     ylim(0, 1) +
     geom_vline(xintercept = mean(d), size = 1.2, color = c_mean) +
