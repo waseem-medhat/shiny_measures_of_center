@@ -2,11 +2,7 @@ library(shiny)
 library(shinydashboard)
 library(ggplot2)
 
-theme_set(theme_minimal(base_size = 16))
-
-dplot1 <- reactive({ ggplot(mtcars, aes(x = mpg)) + geom_dotplot() })
-dplot2 <- reactive({ ggplot(mtcars, aes(x = wt)) + geom_dotplot() })
-dplot3 <- reactive({ ggplot(mtcars, aes(x = disp)) + geom_dotplot() })
+source("prep.R")
 
 dbHeader <- dashboardHeader(
   title = "A Mean and a Median"
