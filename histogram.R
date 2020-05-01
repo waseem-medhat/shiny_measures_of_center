@@ -8,7 +8,7 @@ histogram <- function(d) {
   ggplot(NULL, aes(d)) +
     geom_histogram(aes(y = ..density..), fill = c_hist, color = "white") +
     geom_density(size = 1, linetype = 2, color = c_den) +
-    ylim(0, 1.5) +
+    ylim(0, 1) +
     geom_vline(xintercept = mean(d), size = 1.2, color = c_mean) +
     geom_vline(xintercept = median(d), size = 1.2, color = c_median) +
     geom_label(aes(x = mean(d), y = 0.9), label = "Mean", color = c_mean) +
