@@ -33,11 +33,17 @@ dbBody <- dashboardBody(
       ),
       
       fluidRow(
-        column(plotOutput('dplot1'), width = 6),
-        column(plotOutput('dplot2'), width = 6)
+        column(6, plotOutput('dplot1')),
+        column(6, plotOutput('dplot2'))
       ),
       
-      fluidRow( plotOutput('dplot3') )
+      fluidRow(br()),
+      
+      fluidRow(
+        column(3),
+        column(6, plotOutput('dplot3')),
+        column(3)
+      )
       
     ),
     
