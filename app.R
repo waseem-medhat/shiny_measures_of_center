@@ -14,8 +14,21 @@ dbSidebar <- dashboardSidebar(
 
 dbBody <- dashboardBody(
   tabItems(
-    tabItem(tabName = 'prepared', "here will be some prepared plots."),
+    
+    tabItem(
+      tabName = 'prepared',
+      
+      infoBox(
+        title = "Prepared plots",
+        subtitle = "Look at these plots, which are pre-made for you.",
+        color = "green",
+        width = 12
+      )
+      
+    ),
+    
     tabItem(tabName = 'interactive', "here will be some interactive plots.")
+    
   )
 )
 
