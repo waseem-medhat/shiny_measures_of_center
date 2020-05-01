@@ -1,6 +1,13 @@
 library(shiny)
+library(shinydashboard)
 
-ui <- fluidPage()
+dbHeader <- dashboardHeader()
+
+dbSidebar <- dashboardSidebar()
+
+dbBody <- dashboardBody()
+
+ui <- dashboardPage(dbHeader, dbSidebar, dbBody, "A Mean and a Median", "black")
 
 server <- function(input, output) {}
 
