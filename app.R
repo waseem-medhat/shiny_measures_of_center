@@ -50,10 +50,18 @@ dbBody <- dashboardBody(
 ui <- dashboardPage(dbHeader, dbSidebar, dbBody, skin = "black")
 
 server <- function(input, output) {
+  
+  showModal(
+    modalDialog(
+      'Good to see you! Let\'s look at some plots.',
+      title = 'Welcome')
+  )
+  
   output$dplot1 <- renderPlot({ dplot1() })
   output$dplot2 <- renderPlot({ dplot2() })
   output$dplot3 <- renderPlot({ dplot3() })
   output$dplot4 <- renderPlot({ dplot4() })
+  
 }
 
 shinyApp(ui = ui, server = server)
