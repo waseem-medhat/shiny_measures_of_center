@@ -50,6 +50,7 @@ dbBody <- dashboardBody(
         subtitle = 'Try on you own! Generate normal and extreme data
         and notice the mean and median.',
         icon = icon('mouse-pointer'),
+        color = 'green',
         width = 12
       ),
       
@@ -101,7 +102,7 @@ server <- function(input, output) {
   })
   
   output$iplot  <- renderPlot({ dplot4() })
-  output$sample <- renderText({ paste(sample_acc(), collapse = " ") })
+  output$sample <- renderText({ paste(sample_acc(), collapse = ' ') })
   
 }
 
