@@ -2,10 +2,10 @@ library(shiny)
 library(shinydashboard)
 library(ggplot2)
 
-source("prep.R")
+source('prep.R')
 
 dbHeader <- dashboardHeader(
-  title = "A Mean and a Median"
+  title = 'A Mean and a Median'
 )
 
 dbSidebar <- dashboardSidebar(
@@ -22,9 +22,9 @@ dbBody <- dashboardBody(
       tabName = 'prepared',
       
       infoBox(
-        title = "Prepared plots",
-        subtitle = "Look at these plots, which are pre-made for you.",
-        color = "green",
+        title = 'Prepared plots',
+        subtitle = 'Look at these plots, which are pre-made for you.',
+        color = 'green',
         width = 12
       ),
       
@@ -46,10 +46,10 @@ dbBody <- dashboardBody(
       tabName = 'interactive',
       
       infoBox(
-        title = "Interactive plot",
-        subtitle = "Try on you own! Generate normal and extreme data
-        and notice the mean and median.",
-        icon = icon("mouse-pointer"),
+        title = 'Interactive plot',
+        subtitle = 'Try on you own! Generate normal and extreme data
+        and notice the mean and median.',
+        icon = icon('mouse-pointer'),
         width = 12
       ),
       
@@ -62,7 +62,7 @@ dbBody <- dashboardBody(
   )
 )
 
-ui <- dashboardPage(dbHeader, dbSidebar, dbBody, skin = "black")
+ui <- dashboardPage(dbHeader, dbSidebar, dbBody, skin = 'black')
 
 server <- function(input, output) {
   
