@@ -54,11 +54,28 @@ dbBody <- dashboardBody(
       ),
       
       box(
-        width = 12
+        width = 12,
+        
+        sidebarLayout(
+          
+          sidebarPanel(
+            actionButton(
+              'add_normal',
+              'Add normal data',
+              icon = icon('chart-bar')
+            ),
+            actionButton(
+              'add_extreme',
+              'Add extreme data',
+              icon = icon('chart-bar')
+            )
+          ),
+          
+          mainPanel(plotOutput('iplot'))
+          
+        )
       )
-      
     )
-    
   )
 )
 
@@ -76,6 +93,7 @@ server <- function(input, output) {
   output$dplot2 <- renderPlot({ dplot2() })
   output$dplot3 <- renderPlot({ dplot3() })
   output$dplot4 <- renderPlot({ dplot4() })
+  output$iplot  <- renderPlot({ dplot4() })
   
 }
 
