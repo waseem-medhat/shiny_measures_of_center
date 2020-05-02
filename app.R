@@ -68,7 +68,9 @@ dbBody <- dashboardBody(
               'add_extreme',
               'Add extreme data',
               icon = icon('chart-bar')
-            )
+            ),
+            h3('Generated sample'),
+            textOutput('sample')
           ),
           
           mainPanel(plotOutput('iplot'))
@@ -94,6 +96,7 @@ server <- function(input, output) {
   output$dplot3 <- renderPlot({ dplot3() })
   output$dplot4 <- renderPlot({ dplot4() })
   output$iplot  <- renderPlot({ dplot4() })
+  output$sample <- renderText('1')
   
 }
 
