@@ -95,8 +95,13 @@ server <- function(input, output) {
   output$dplot2 <- renderPlot({ dplot2() })
   output$dplot3 <- renderPlot({ dplot3() })
   output$dplot4 <- renderPlot({ dplot4() })
+  
+  sample_acc <- reactive({
+    c(normal_points[0:input$add_normal], extreme_points[0:input$add_extreme])
+  })
+  
   output$iplot  <- renderPlot({ dplot4() })
-  output$sample <- renderText('1')
+  output$sample <- renderText({ paste(sample_acc(), collapse = " ") })
   
 }
 
