@@ -67,7 +67,7 @@ dbBody <- dashboardBody(
             ),
             actionButton(
               'add_extreme',
-              'Add extreme data',
+              'Add outlier',
               icon = icon('chart-bar')
             ),
             h3('Generated sample'),
@@ -89,7 +89,7 @@ server <- function(input, output) {
   showModal(
     modalDialog(
       'Good to see you! Let\'s look at some plots.',
-      title = 'Welcome')
+      title = h3(icon('star'), 'Welcome'))
   )
   
   output$dplot1 <- renderPlot({ dplot1() })
@@ -101,7 +101,23 @@ server <- function(input, output) {
     c(normal_points[0:input$add_normal], extreme_points[0:input$add_extreme])
   })
   
-  output$iplot  <- renderPlot({ dotplot(sample_acc()) })
+  sample_mean <- reactive({
+    mean(sample_acc())
+  })
+  
+  sample_median <- reactive({
+    median(sample_acc())
+  })
+  
+  iplot <- reactive({
+    dotplot(
+      sample_acc(),
+      sample_mean(),
+      sample_median()
+    )
+  })
+  
+  output$iplot  <- renderPlot({ iplot() })
   output$sample <- renderText({ paste(sample_acc(), collapse = ' ') })
   
 }
