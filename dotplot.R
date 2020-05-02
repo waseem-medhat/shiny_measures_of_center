@@ -2,7 +2,7 @@ dotplot <- function(d) {
   
   c_hist <- "gray60"
   c_den  <- "gray20"
-  c_mean <- "red3"
+  c_mean <- "tomato3"
   c_median <- "dodgerblue4"
   
   ggplot(NULL, aes(d)) +
