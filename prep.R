@@ -1,4 +1,3 @@
-set.seed(15)
 theme_set(theme_minimal(base_size = 16))
 
 source('dotplot.R')

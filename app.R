@@ -101,7 +101,7 @@ server <- function(input, output) {
     c(normal_points[0:input$add_normal], extreme_points[0:input$add_extreme])
   })
   
-  output$iplot  <- renderPlot({ dplot4() })
+  output$iplot  <- renderPlot({ dotplot(sample_acc()) })
   output$sample <- renderText({ paste(sample_acc(), collapse = ' ') })
   
 }
