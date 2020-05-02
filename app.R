@@ -42,7 +42,22 @@ dbBody <- dashboardBody(
       
     ),
     
-    tabItem(tabName = 'interactive', "here will be some interactive plots.")
+    tabItem(
+      tabName = 'interactive',
+      
+      infoBox(
+        title = "Interactive plot",
+        subtitle = "Try on you own! Generate normal and extreme data
+        and notice the mean and median.",
+        icon = icon("mouse-pointer"),
+        width = 12
+      ),
+      
+      box(
+        width = 12
+      )
+      
+    )
     
   )
 )
