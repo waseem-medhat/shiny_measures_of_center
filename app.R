@@ -70,6 +70,12 @@ dbBody <- dashboardBody(
               'Add outlier',
               icon = icon('chart-bar')
             ),
+            br(),
+            actionButton(
+              'reset',
+              'Clear data',
+              icon = icon('recycle')
+            ),
             h3('Generated sample'),
             textOutput('sample'),
             br(),
