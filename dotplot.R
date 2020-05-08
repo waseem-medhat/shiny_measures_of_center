@@ -13,6 +13,6 @@ dotplot <- function(d, dmean, dmedian) {
     geom_vline(xintercept = dmedian, size = 1.2, color = c_median) +
     geom_label(aes(x = dmean, y = .9), label = 'Mean', color = c_mean) +
     geom_label(aes(x = dmedian, y = .8), label = 'Median', color = c_median) +
-    labs(x = 'Value', 'Count')
+    labs(x = 'Value', y = 'Count')
   
 }
