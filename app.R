@@ -122,6 +122,8 @@ server <- function(input, output) {
     iplot_data$median <- median(iplot_data$data)
   })
   
+  observeEvent(input$reset, { iplot_data$data <- numeric() })
+  
   
   output$sample <- renderText({ paste(iplot_data$data, collapse = ' ') })
   
