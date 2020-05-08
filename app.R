@@ -136,11 +136,16 @@ server <- function(input, output) {
     )
   })
   
-  output$iplot  <- renderPlot({ dplot1() })
   output$sample <- renderText({ paste(iplot_data$data, collapse = ' ') })
+  
   output$stats  <- renderText({
     if (length(iplot_data$data > 0)) 
     paste0('mean = ', iplot_data$mean, ', median = ', iplot_data$median)
+  })
+  
+  output$iplot  <- renderPlot({
+    if (length(iplot_data$data > 0)) 
+    dotplot(iplot_data$data, iplot_data$mean, iplot_data$median)
   })
   
 }
