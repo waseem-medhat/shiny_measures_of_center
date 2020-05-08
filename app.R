@@ -100,9 +100,17 @@ server <- function(input, output) {
   
   
   iplot_data <- reactiveValues()
-  iplot_data$cnt_normal  <- 0
-  iplot_data$cnt_extreme <- 0
   iplot_data$data <- numeric()
+  
+  observeEvent(
+    input$add_normal,
+    iplot_data$data <- c(iplot_data$data, sample(1:5, 1))
+  )
+  
+  observeEvent(
+    input$add_extreme,
+    iplot_data$data <- c(iplot_data$data, sample(10:12, 1))
+  )
   
   sample_acc <- reactive({
     c(normal_points[0:input$add_normal], extreme_points[0:input$add_extreme])
@@ -125,7 +133,7 @@ server <- function(input, output) {
   })
   
   output$iplot  <- renderPlot({ dplot1() })
-  output$sample <- renderText({ paste(sample_acc(), collapse = ' ') })
+  output$sample <- renderText({ paste(iplot_data$data, collapse = ' ') })
   
 }
 
