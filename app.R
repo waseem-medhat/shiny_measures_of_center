@@ -116,25 +116,6 @@ server <- function(input, output) {
     iplot_data$median <- median(iplot_data$data)
   })
   
-  sample_acc <- reactive({
-    c(normal_points[0:input$add_normal], extreme_points[0:input$add_extreme])
-  })
-  
-  sample_mean <- reactive({
-    mean(sample_acc())
-  })
-  
-  sample_median <- reactive({
-    median(sample_acc())
-  })
-  
-  iplot <- reactive({
-    dotplot(
-      sample_acc(),
-      sample_mean(),
-      sample_median()
-    )
-  })
   
   output$sample <- renderText({ paste(iplot_data$data, collapse = ' ') })
   
