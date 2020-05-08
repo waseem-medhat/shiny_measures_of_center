@@ -92,10 +92,17 @@ server <- function(input, output) {
       title = h3(icon('star'), 'Welcome'))
   )
   
+  
   output$dplot1 <- renderPlot({ dplot1() })
   output$dplot2 <- renderPlot({ dplot2() })
   output$dplot3 <- renderPlot({ dplot3() })
   output$dplot4 <- renderPlot({ dplot4() })
+  
+  
+  iplot_data <- reactiveValues()
+  iplot_data$cnt_normal  <- 0
+  iplot_data$cnt_extreme <- 0
+  iplot_data$data <- numeric()
   
   sample_acc <- reactive({
     c(normal_points[0:input$add_normal], extreme_points[0:input$add_extreme])
@@ -117,7 +124,7 @@ server <- function(input, output) {
     )
   })
   
-  output$iplot  <- renderPlot({ iplot() })
+  output$iplot  <- renderPlot({ dplot1() })
   output$sample <- renderText({ paste(sample_acc(), collapse = ' ') })
   
 }
