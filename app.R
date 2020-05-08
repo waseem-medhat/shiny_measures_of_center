@@ -71,7 +71,9 @@ dbBody <- dashboardBody(
               icon = icon('chart-bar')
             ),
             h3('Generated sample'),
-            textOutput('sample')
+            textOutput('sample'),
+            br(),
+            textOutput('stats')
           ),
           
           mainPanel(plotOutput('iplot'))
@@ -102,15 +104,17 @@ server <- function(input, output) {
   iplot_data <- reactiveValues()
   iplot_data$data <- numeric()
   
-  observeEvent(
-    input$add_normal,
+  observeEvent(input$add_normal, {
     iplot_data$data <- c(iplot_data$data, sample(1:5, 1))
-  )
+    iplot_data$mean <- round(mean(iplot_data$data), 1)
+    iplot_data$median <- median(iplot_data$data)
+  })
   
-  observeEvent(
-    input$add_extreme,
+  observeEvent(input$add_extreme, {
     iplot_data$data <- c(iplot_data$data, sample(10:12, 1))
-  )
+    iplot_data$mean <- round(mean(iplot_data$data), 1)
+    iplot_data$median <- median(iplot_data$data)
+  })
   
   sample_acc <- reactive({
     c(normal_points[0:input$add_normal], extreme_points[0:input$add_extreme])
@@ -134,6 +138,10 @@ server <- function(input, output) {
   
   output$iplot  <- renderPlot({ dplot1() })
   output$sample <- renderText({ paste(iplot_data$data, collapse = ' ') })
+  output$stats  <- renderText({
+    if (length(iplot_data$data > 0)) 
+    paste0('mean = ', iplot_data$mean, ', median = ', iplot_data$median)
+  })
   
 }
 
